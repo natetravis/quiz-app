@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Quiz App - Test your knowledge on various topics!">
+    <title>Quiz Master</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1 class="app-title">Quiz Master</h1>
+            <p class="tagline">Challenge yourself. Compete with others. Rise to the top!</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Screen -->
+        <section class="welcome-screen" id="welcome-screen">
+            <h2>Welcome to Quiz Master</h2>
+            <p>Test your knowledge across various topics and challenge friends!</p>
+            <button id="start-quiz-btn" class="primary-btn">Start Quiz</button>
+        </section>
+
+        <!-- Quiz Container -->
+        <section class="quiz-container hidden" id="quiz-container" aria-live="polite">
+            <div class="quiz-header">
+                <h2 class="quiz-title" id="quiz-title">Quiz in Progress</h2>
+                <div class="timer" id="timer" role="timer" aria-live="assertive">Time Left: <span
+                        id="time-left">30</span>s</div>
+                <div class="timer-bar">
+                    <div class="timer-bar-inner"></div>
+                </div>
+            </div>
+            <div class="quiz-content" id="quiz-content">
+                <!-- Dynamic content: Questions will be loaded here -->
+            </div>
+            <div class="quiz-footer">
+                <button id="next-question-btn" class="secondary-btn hidden">Next Question</button>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section class="results-screen hidden" id="results-screen">
+            <h2>Your Results</h2>
+            <p id="score-display">You scored: 0/0</p>
+            <button id="restart-quiz-btn" class="primary-btn">Play Again</button>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Quiz Master. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
