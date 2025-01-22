@@ -13,6 +13,17 @@
 </head>
 
 <body>
+    <!-- Background Pattern Container -->
+    <div class="background-pattern">
+        <div class="math-symbols">∑ π ∞ ∫ √ ∆ ∏ ∂ ∇ ≈ ∝ ± ≠ ≤ ≥ ∈ ∉</div>
+        <div class="science-quotes">
+            <span>"E = mc²"</span>
+            <span>"F = ma"</span>
+            <span>"PV = nRT"</span>
+            <span>"∆S ≥ 0"</span>
+        </div>
+    </div>
+
     <!-- Header Section -->
     <header>
         <div class="container">
@@ -27,7 +38,15 @@
         <section class="welcome-screen" id="welcome-screen">
             <h2>Welcome to Quiz Master</h2>
             <p>Test your knowledge across various topics and challenge friends!</p>
-            <button id="start-quiz-btn" class="primary-btn">Start Quiz</button>
+            <button id="start-quiz-btn" class="primary-btn">Choose Topic</button>
+        </section>
+
+        <!-- Topic Selection Screen -->
+        <section class="topic-selection hidden" id="topic-selection">
+            <h2>Select a Topic</h2>
+            <div class="topics-grid" id="topics-grid">
+                <!-- Topics will be dynamically inserted here -->
+            </div>
         </section>
 
         <!-- Quiz Container -->
@@ -63,6 +82,7 @@
         </div>
     </footer>
 
+    <script src="questions_db.js"></script>
     <script src="script.js"></script>
 </body>
 
