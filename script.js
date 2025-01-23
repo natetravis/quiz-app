@@ -64,7 +64,7 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 let totalPoints = 0;
-let timeLeft = 30;
+let timeLeft = 10;
 let timerInterval;
 let selectedTopic = null;
 let currentQuestions = []; // Add this to store current topic questions
@@ -269,17 +269,28 @@ function getPerformanceMessage(score) {
 }
 
 function startTimer() {
-    timeLeft = 30;
+    timeLeft = 10;
     timeLeftSpan.textContent = timeLeft;
-    timerBarInner.style.animation = 'countdown 30s linear';
+    timerBarInner.style.animation = 'countdown 10s linear';
+    
+    // Add countdown animation class
+    timeLeftSpan.classList.add('countdown-animation');
     
     timerInterval = setInterval(() => {
         timeLeft--;
         timeLeftSpan.textContent = timeLeft;
         
+        // Add urgent class when time is running low (less than 4 seconds)
+        if (timeLeft <= 3) {
+            timeLeftSpan.classList.add('urgent');
+            document.getElementById('timer').classList.add('pulse');
+        }
+        
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            checkAnswer(-1, -1); // Force show correct answer when time runs out
+            timeLeftSpan.classList.remove('countdown-animation', 'urgent');
+            document.getElementById('timer').classList.remove('pulse');
+            checkAnswer(-1, -1);
         }
     }, 1000);
 }
@@ -287,6 +298,8 @@ function startTimer() {
 function resetTimer() {
     clearInterval(timerInterval);
     timerBarInner.style.animation = 'none';
+    timeLeftSpan.classList.remove('countdown-animation', 'urgent');
+    document.getElementById('timer').classList.remove('pulse');
     // Trigger reflow
     void timerBarInner.offsetWidth;
     timerBarInner.style.animation = null;
